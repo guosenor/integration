@@ -1,0 +1,10 @@
+{
+  "mysql":{
+    "database":"guosen",
+    "username":"root",
+    "password":"guosen",
+    "host":"localhost",
+    "dialect":"mysql",
+    "port":3306
+  }
+}
