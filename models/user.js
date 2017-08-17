@@ -5,9 +5,11 @@
 
 module.exports = function(sequelize, DataTypes) {
     var User = sequelize.define("User", {
-        username: DataTypes.STRING,
+        username: {type:DataTypes.STRING,unique:true},
         password: DataTypes.STRING
     });
-
+    User.associate = function(models) {
+        User.hasMany(models.Article,{foreignKey:'createById',as:'articles'})
+    }
     return User;
 };
