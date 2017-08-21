@@ -56,7 +56,13 @@ app.get('/api/swagger.json', function(req, res) {
     res.send(swaggerSpec);
 });
 // app.use('/api/users', users);
-
+app.use(function (req,res,next) {
+    if(req.path=='/'&&req.method=='GET'){
+        res.redirect('/swagger-ui');
+    }else{
+        next();
+    }
+})
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
