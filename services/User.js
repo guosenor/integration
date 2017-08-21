@@ -30,6 +30,9 @@ User.login=function (form) {
         return Promise.reject({message:'username and password required'});
     }
 }
+User.findById=function (userId) {
+    return models.User.findById(userId);
+}
 function getPassword(str) {
     var crypto = require('crypto');
     var md5 = crypto.createHash('md5');

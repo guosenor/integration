@@ -4,8 +4,11 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var swaggerJSDoc = require('swagger-jsdoc');
+var jwt = require('jsonwebtoken');
+var secret =  require('./config.json').secret;
 var index = require('./routes/index');
+
 // var users = require('./routes/users');
 
 var app = express();
@@ -16,13 +19,42 @@ app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
+app.use(function (req,res,next) {
+    var a =req;
+    next();
+})
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.urlencoded({ extended: true }));
+
+var swaggerSpec = swaggerJSDoc({
+    swaggerDefinition: {
+        info: {
+            title: 'Node Swagger API',
+            version: '2.0.0',
+            description: 'GuoSen RESTful API with Swagger',
+        },
+        host: 'localhost:3000',
+        basePath: '/',
+    },
+    apis: ['./routes/*.js'],
+});
+
+app.use(cookieParser('pciekdh'));
+app.use(function (req,res,next) {
+    const cookies=req.signedCookies;
+    if(cookies.token){
+        req.token = jwt.verify(cookies.token,secret);
+    }
+    next();
+});
 
 app.use('/api', index);
+app.get('/api/swagger.json', function(req, res) {
+    res.setHeader('Content-Type', 'application/json');
+    res.send(swaggerSpec);
+});
 // app.use('/api/users', users);
 
 // catch 404 and forward to error handler

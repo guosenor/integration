@@ -6,5 +6,6 @@
     "host":"localhost",
     "dialect":"mysql",
     "port":3306
-  }
+  },
+  "secret":"djdbcklso9ew[e"
 }
