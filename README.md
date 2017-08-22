@@ -11,6 +11,8 @@
 已经实现用户注册和登录。
 接下来实现增加角色与权限。
 
+[swagger](https://github.com/guosen88100300/integration/blob/master/public/Markdown/QQ20170822-101754.png)
+
 
 
 
