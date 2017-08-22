@@ -1,8 +1,16 @@
 # integration
+### 一个基于express的后台API服务架构，并包含swagger
+### npm  5.0 node.js 8.0
 
-**demo 其中包含 express sequelize swagger jwt**
+##
+####express
+####sequelize
+####swagger-jsdoc
+####jwt
 
-npm 版本 5.0 nodejs版本8.0****
+已经实现用户注册和登录。
+接下来实现增加角色与权限。
 
-`好动稀吧`
+
+
 
