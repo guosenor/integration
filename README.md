@@ -4,10 +4,10 @@
 
 ##
 
-####express
-####sequelize
-####swagger-jsdoc
-####jwt
+#### express
+#### sequelize
+#### swagger-jsdoc
+#### jwt
 
 已经实现用户注册和登录。
 接下来实现增加角色与权限。
