@@ -36,8 +36,14 @@ module.exports = {
             delete user.password;
             res.send(user);
         }catch (e){
-            res.statusCode=422;
-            res.send({status:'failed',message:e.message});
+
+            if(e.message=="Cannot read property 'id' of undefined"){
+                res.statusCode= 401;
+                res.send({code:401,message:"please login"});
+            }else{
+                res.statusCode=422;
+                res.send({status:'failed',message:e.message});
+            }
         }
     }
 

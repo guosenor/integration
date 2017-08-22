@@ -2,9 +2,6 @@ var express = require('express');
 var router = express.Router();
 var User = require('../controller/user.js');
 
-
-/* GET users listing. */
-router.post('/',User.create);
 /**
  * @swagger
  * definitions:
@@ -15,6 +12,31 @@ router.post('/',User.create);
  *       password:
  *         type: string
  */
+
+/**
+ * @swagger
+ * /api/user:
+ *   post:
+ *     tags:
+ *       - Users
+ *     description: register user
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: user
+ *         description: User object
+ *         in:  body
+ *         required: true
+ *         type: string
+ *         schema:
+ *           $ref: '#/definitions/User'
+ *     responses:
+ *       200:
+ *         description: Successfully login
+ */
+/* GET users listing. */
+router.post('/',User.create);
+
 
 /**
  * @swagger

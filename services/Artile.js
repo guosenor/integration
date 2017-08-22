@@ -10,8 +10,31 @@ Article.create=function (form) {
         return Promise.reject({message:'title and content required'});
     }
 };
-Article.find=function (filter) {
-    console.log(filter)
-    return models.Article.findAll(filter)
+Article.find=function (params) {
+    let filter = {};
+    try {
+        if(typeof params=='string'){
+            filter= JSON.parse(params);
+        }
+    }catch (e){
+        filter={};
+    }
+    if(filter.limit){
+        if(typeof filter.limit=='number'){
+            if(filter.limit>24){
+                filter.limit=24;
+            }
+        }else{
+            filter=24;
+        }
+    }else {
+        filter.limit=24;
+    }
+    filter.include=[{
+        as:"createBy",
+        model:models.User,
+        attributes:['id','username','createdAt']
+    }]
+    return models.Article.findAll(filter);
 }
 module.exports = Article;
