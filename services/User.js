@@ -2,7 +2,7 @@
  * Created by guosen on 2017/8/16.
  */
 var models=require('../models');
-var User={};
+var User=new Object();
 User.create=function (user) {
     if(user.password){
         user.password=getPassword(user.password);

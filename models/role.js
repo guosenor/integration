@@ -15,6 +15,12 @@ module.exports = function(sequelize, DataTypes) {
             },
             foreignKey: 'roleId'
         });
-    }
+        Role.belongsToMany(models.Action, {
+            through: {
+                model: 'RoleAction',
+            },
+            foreignKey: 'roleId'
+        });
+    };
     return Role;
 };
