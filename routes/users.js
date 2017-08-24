@@ -60,6 +60,56 @@ router.post('/',User.create);
  *         description: Successfully login
  */
 router.post('/login',User.login);
+/**
+ * @swagger
+ * /api/user/setRole:
+ *   get:
+ *     tags:
+ *       - Users
+ *     description: user set role
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: userId
+ *         description: UserId
+ *         in:  query
+ *         required: true
+ *         type: string
+ *       - name: roleId
+ *         description: roleId
+ *         in:  query
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: Successfully setRole
+ */
+router.get('/setRole',User.setRole);
+/**
+ * @swagger
+ * /api/user/removeRole:
+ *   get:
+ *     tags:
+ *       - Users
+ *     description: user remove role
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: userId
+ *         description: UserId
+ *         in:  query
+ *         required: true
+ *         type: string
+ *       - name: roleId
+ *         description: roleId
+ *         in:  query
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: Successfully removeRole
+ */
+router.get('/removeRole',User.removeRole);
 
 /**
  * @swagger

@@ -8,6 +8,7 @@ var swaggerJSDoc = require('swagger-jsdoc');
 var jwt = require('jsonwebtoken');
 var secret =  require('./config.json').secret;
 var index = require('./routes/index');
+var User = require('./services/User');
 
 // var users = require('./routes/users');
 
@@ -21,10 +22,6 @@ app.set('view engine', 'ejs');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
-app.use(function (req,res,next) {
-    var a =req;
-    next();
-})
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -49,6 +46,18 @@ app.use(function (req,res,next) {
     }
     next();
 });
+app.use(async function (req,res,next) {
+    if(req.token){
+        try {
+            req.user = await User.findById(req.token.id);
+        }catch (e){
+            console.log(e);
+        }
+        next();
+    }else{
+      next()
+    }
+})
 
 app.use('/api', index);
 app.get('/api/swagger.json', function(req, res) {

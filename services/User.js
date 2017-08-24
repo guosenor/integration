@@ -31,7 +31,33 @@ User.login=function (form) {
     }
 }
 User.findById=function (userId) {
-    return models.User.findById(userId);
+    return models.User.findById(userId,{include:{as:'roles',model:models.Role,attributes:['id','name']}});
+}
+User.setRole= async function (userId,roleId) {
+    try {
+        const user = await models.User.findById(userId);
+        const role = await models.Role.findById(roleId);
+        if(user != undefined && role != undefined){
+            return user.addRole(role);
+        }else{
+            return Promise.reject('user or role is undefined');
+        }
+    }catch (e){
+        return Promise.reject(e);
+    }
+}
+User.removeRole= async function (userId,roleId) {
+    try {
+        const user = await models.User.findById(userId);
+        const role = await models.Role.findById(roleId);
+        if(user != undefined && role != undefined){
+            return user.removeRole(role);
+        }else{
+            return Promise.reject('user or role is undefined');
+        }
+    }catch (e){
+        return Promise.reject(e);
+    }
 }
 function getPassword(str) {
     var crypto = require('crypto');

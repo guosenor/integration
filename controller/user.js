@@ -29,22 +29,60 @@ module.exports = {
         }
     },
     findById: async (req, res, next) => {
+        if(req.user){
+            try {
+                const user = JSON.parse(JSON.stringify(req.user));
+                delete user.password;
+                res.send(user);
+            }catch (e){
+                res.statusCode=401;
+                res.send({code:401,message:'please login'})
+            }
+        }else{
+            res.statusCode=401;
+            res.send({code:401,message:'please login'})
+        }
+    },
+    setRole: async (req, res, next) => {
         try {
-            const token =req.token;
-            const result = await User.findById(token.id);
-            const user = JSON.parse(JSON.stringify(result));
-            delete user.password;
-            res.send(user);
-        }catch (e){
+            const params= req.query;
+            if(params.userId && params.roleId){
+                try {
+                    const result = await User.setRole(params.userId, params.roleId);
+                    res.send({status:'success'});
+                }catch (e){
+                    res.statusCode=422;
+                    res.send(e);
+                }
 
-            if(e.message=="Cannot read property 'id' of undefined"){
-                res.statusCode= 401;
-                res.send({code:401,message:"please login"});
             }else{
                 res.statusCode=422;
-                res.send({status:'failed',message:e.message});
+                res.end({code:422,message:'userId and roleId is required'})
             }
+        }catch (e){
+            res.statusCode= 422;
+            res.json({message:e.message});
         }
-    }
+    },
+    removeRole: async (req, res, next) => {
+        try {
+            const params= req.query;
+            if(params.userId && params.roleId){
+                try {
+                    const result = await User.removeRole(params.userId, params.roleId);
+                    res.send({status:'success'});
+                }catch (e){
+                    res.statusCode=422;
+                    res.send(e);
+                }
 
+            }else{
+                res.statusCode=422;
+                res.end({code:422,message:'userId and roleId is required'})
+            }
+        }catch (e){
+            res.statusCode= 422;
+            res.json({message:e.message});
+        }
+    },
 }

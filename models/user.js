@@ -9,7 +9,14 @@ module.exports = function(sequelize, DataTypes) {
         password: DataTypes.STRING
     });
     User.associate = function(models) {
-        User.hasMany(models.Article,{foreignKey:'createById',as:'articles'})
+        User.hasMany(models.Article,{foreignKey:'createById',as:'articles'});
+        User.belongsToMany(models.Role, {
+            through: {
+                model: 'RoleMapping',
+            },
+            foreignKey: 'userId',
+            as:'roles'
+        });
     }
     return User;
 };
