@@ -10,8 +10,10 @@
 #### jwt
 
 已经实现用户注册和登录。为用户增加角色和去除角色。
+已经增加Action表。并建立RoleAction和UserAction表。
+实现权限过滤。
 
-接下来实现权限控制。
+接下来再开个前端项目，实在在页面配置权限。
 
 ![](https://github.com/guosen88100300/integration/blob/master/public/Markdown/swagger.png)
 
