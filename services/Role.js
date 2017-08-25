@@ -42,4 +42,10 @@ Role.modify = async function (form) {
        return Promise.reject('id is required');
    }
 }
+Role.getActionByRoleIds =  function (ids) {
+   return models.Action.findAll({include:{
+        model:models.Role,
+        where:{id:{$in:ids}}
+    }})
+}
 module.exports = Role;

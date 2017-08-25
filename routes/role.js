@@ -4,6 +4,7 @@
 var express = require('express');
 var router = express.Router();
 var Role = require('../controller/role.js');
+var permissionFilter = require('../middleware/permissionFilter')
 
 /**
  * @swagger
@@ -38,7 +39,7 @@ var Role = require('../controller/role.js');
  *         description: Successfully create
  */
 
-router.post('/',Role.create);
+router.post('/',permissionFilter('Role.create'),Role.create);
 
 /**
  * @swagger

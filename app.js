@@ -9,6 +9,7 @@ var jwt = require('jsonwebtoken');
 var secret =  require('./config.json').secret;
 var index = require('./routes/index');
 var User = require('./services/User');
+var Role = require('./services/Role');
 
 // var users = require('./routes/users');
 
@@ -39,6 +40,11 @@ var swaggerSpec = swaggerJSDoc({
 });
 
 app.use(cookieParser('pciekdh'));
+
+/**
+ * 读取token
+ *
+ * */
 app.use(function (req,res,next) {
     const cookies=req.signedCookies;
     if(cookies.token){
@@ -46,10 +52,23 @@ app.use(function (req,res,next) {
     }
     next();
 });
+/**
+ * 读取用户信息获取用户action列表。
+ * */
 app.use(async function (req,res,next) {
     if(req.token){
         try {
             req.user = await User.findById(req.token.id);
+            const roleIds=[];
+            if(req.user.roles){
+                req.user.roles.forEach((item)=>{
+                   roleIds.push(item.id);
+                });
+            }
+            const roleActions = await Role.getActionByRoleIds(roleIds);
+            const userActions= await req.user.getActions();
+            req.Actions=JSON.parse(JSON.stringify(roleActions)).concat(JSON.parse(JSON.stringify(userActions)));
+            console.log(req.Actions)
         }catch (e){
             console.log(e);
         }

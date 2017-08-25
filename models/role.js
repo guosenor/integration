@@ -10,12 +10,14 @@ module.exports = function(sequelize, DataTypes) {
     });
     Role.associate = function(models) {
         Role.belongsToMany(models.User, {
+            onDelete: "CASCADE",
             through: {
                 model: 'RoleMapping',
             },
             foreignKey: 'roleId'
         });
         Role.belongsToMany(models.Action, {
+            onDelete: "CASCADE",
             through: {
                 model: 'RoleAction',
             },
