@@ -13,7 +13,7 @@
 
 接下来实现权限控制。
 
-![](https://github.com/guosen88100300/integration/blob/master/public/Markdown/QQ20170822-101754.jpg)
+![](https://github.com/guosen88100300/integration/blob/master/public/Markdown/swagger.png)
 
 
 
