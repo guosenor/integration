@@ -2,19 +2,45 @@
   <div class="title"></div>
   <div class="body">
       <div class="content">
+
           <div id="loginFrom">
               <div class="nav">
-                  <a>账户登录</a>|
-                  <a>手机登录</a>
+                  <a onselectstart="return false;">账户登录</a>|
+                  <a onselectstart="return false;">手机登录</a>
+              </div>
+              <div class="inputMessage">
+                  <label></label>
+                  <span>用户名和密码错误</span>
               </div>
               <div class="content">
                   <div class="formItem">
-                      <label for="username" class="name-label"></label>
-                      <input type="text" id="username" placeholder="手机号、用户名，邮箱">
+                      <div class="input warmingBoder">
+                          <label for="username" class="name-label"></label>
+                          <input type="text" id="username" placeholder="手机号/用户名/邮箱">
+                      </div>
+
                   </div>
                   <div class="formItem">
-                      <label for="password" class="pwd-label"></label>
-                      <input type="password" id="password" placeholder="密码">
+                      <div class="input">
+                          <label for="password" class="pwd-label"></label>
+                          <input type="password" id="password" placeholder="密码">
+                      </div>
+                  </div>
+                  <div class="formItem">
+                      <a class="forGetPwd">忘记密码</a>
+                  </div>
+                  <div class="formItem">
+                      <a class="btn" onselectstart="return false;">登录</a>
+                  </div>
+              </div>
+              <div class="end">
+                  <div class="thirdNav">
+                      <a onselectstart="return false;">QQ</a>|
+                      <a onselectstart="return false;">WebGet</a>
+                  </div>
+                  <div class="reginLink">
+                      <label for="regin"></label>
+                      <a id="regin">立即注册</a>
                   </div>
               </div>
           </div>

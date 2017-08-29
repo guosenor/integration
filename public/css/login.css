@@ -7,20 +7,21 @@
     min-height: 100px;
 }
 .login .body{
-    min-height: 450px;
+    min-height: 430px;
 }
 .login .body>.content{
-    /*float: right;*/
+    margin: 0 auto;
     width: 1000px;
     background-color: #ececec;
     min-height: inherit;
 }
 #loginFrom{
+    position: relative;
     float: right;
     margin: 20px 20px 20px 20px;
-    width: 400px;
+    width: 374px;
     background-color: #ffffff;
-    min-height: 400px;
+    /*min-height: 400px;*/
 }
 #loginFrom .nav{
     width: 100%;
@@ -36,7 +37,7 @@
     font-size: 20px;
     line-height: 50px;
 }
-#loginFrom .nav a:hover{
+#loginFrom .nav>a:hover{
     cursor:pointer;
     color: #ff5a0d;
 }
@@ -45,23 +46,33 @@
 }
 #loginFrom .formItem{
     position: relative;
-    padding: 20px 20px 40px 40px;
+    padding: 10px 20px 10px 40px;
     width: 100%;
     height: 30px;
 }
-#loginFrom .formItem input{
-    width: 250px;
-    height: 30px;
-    margin-left: 38px;
+#loginFrom .formItem .input{
+    width: 300px;
+    height: 38px;
+    border: solid 1px;
+    border-color: #ececec;
 }
-#loginFrom .name-label{
+#loginFrom .formItem input{
+    width: 256px;
+    height: 32px;
+    text-indent:10px;
+    margin-left: 38px;
+    border-style:none;
+    outline:none;
+}
+#loginFrom label{
     position: absolute;
     z-index: 3;
-    top: 19px;
-    left: 40px;
+    top: 11px;
+    left: 41px;
     width: 38px;
     height: 38px;
-    border-right: 1px solid #bdbdbd;
+}
+#loginFrom .name-label{
     background: url('images/pwd-icons-new.png') no-repeat;
 }
 #loginFrom .name-label:hover{
@@ -72,16 +83,103 @@
     background-color:  #ececec;
 }
 #loginFrom .pwd-label{
-    position: absolute;
-    z-index: 3;
-    top: 19px;
-    left: 40px;
-    width: 38px;
-    height: 38px;
-    border-right: 1px solid #bdbdbd;
     background: url('images/pwd-icons-new.png') no-repeat;
     background-position: -48px 0px;
 }
 #loginFrom .pwd-label:hover{
     background-position: -48px -48px;
+}
+#loginFrom .formItem .forGetPwd{
+    font-size: 14px;
+    margin-left: 240px;
+    line-height: 40px;
+}
+#loginFrom .formItem .forGetPwd:hover{
+    color: #ff5a0d;
+    text-decoration: underline;
+    cursor:pointer;
+}
+#loginFrom .formItem .btn{
+    display: block;
+    width: 290px;
+    text-align: center;
+    color: #ffffff;
+    background-color: #ff5a0d;
+    font-size: 18px;
+    line-height: 40px;
+    cursor:pointer;
+    margin: 0px 1px 1px 0px;
+    outline: rgb(109, 109, 109) none 0;
+}
+#loginFrom .formItem .btn:active{
+    outline: rgb(77, 144, 254) auto 5px;
+}
+#loginFrom .end{
+    float: left;
+    width: 100%;
+    margin-top: 30px;
+    border-top:solid 1px #ececec;
+}
+#loginFrom .end .thirdNav{
+    float: left;
+    color: #ececec;
+    margin: 10px 0 0 20px;
+}
+#loginFrom .end .thirdNav a{
+    display: inline-block;
+    width: 70px;
+    /*height: 40px;*/
+    text-align: center;
+    line-height: 30px;
+}
+#loginFrom .reginLink{
+    text-align: center;
+    float: right;
+    font-size: 14px;
+    line-height: 50px;
+    margin: 0 38px;
+    color: #ff5a0d;
+}
+#loginFrom .reginLink a:hover{
+    cursor:pointer;
+    text-decoration: underline;
+
+}
+#loginFrom .reginLink label{
+    position: relative;
+    display: inline-block;
+    z-index: 3;
+    top:4px;
+    left: 4px;
+    width: 20px;
+    height: 20px;
+    background: url('images/pwd-icons-new.png') no-repeat;
+    background-position: -104px -72px;
+}
+#loginFrom .inputMessage{
+    top:60px;
+    left: 42px;
+    position: absolute;
+    width: 298px;
+    height: 20px;
+    background-color: #ff8a00;
+    border: solid 1px #ff5a0d;
+    font-size: 14px;
+}
+#loginFrom .inputMessage span{
+    position:absolute;
+}
+#loginFrom .inputMessage label{
+    position: relative;
+    display: inline-block;
+    z-index: 3;
+    top:0;
+    left: -25px;
+    width: 20px;
+    height: 20px;
+    background: url('images/pwd-icons-new.png') no-repeat;
+    background-position: -104px -46px;
+}
+#loginFrom .formItem .warmingBoder{
+    border-color: #ff7e1f;
 }
