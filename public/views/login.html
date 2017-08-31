@@ -8,29 +8,29 @@
                   <a onselectstart="return false;">账户登录</a>|
                   <a onselectstart="return false;">手机登录</a>
               </div>
-              <div class="inputMessage">
+              <div class="inputMessage" ng-if="loginFild">
                   <label></label>
                   <span>用户名和密码错误</span>
               </div>
               <div class="content">
                   <div class="formItem">
-                      <div class="input warmingBoder">
+                      <div class="input" ng-class={"warmingBoder":loginFild}>
                           <label for="username" class="name-label"></label>
-                          <input type="text" id="username" placeholder="手机号/用户名/邮箱">
+                          <input type="text" id="username" placeholder="手机号/用户名/邮箱" ng-model="username"  ng-change="inputting()">
                       </div>
 
                   </div>
                   <div class="formItem">
                       <div class="input">
                           <label for="password" class="pwd-label"></label>
-                          <input type="password" id="password" placeholder="密码">
+                          <input type="password" id="password" placeholder="密码" ng-model="password">
                       </div>
                   </div>
                   <div class="formItem">
                       <a class="forGetPwd">忘记密码</a>
                   </div>
                   <div class="formItem">
-                      <a class="btn" onselectstart="return false;">登录</a>
+                      <a class="btn" onselectstart="return false;" ng-click="login()">登录</a>
                   </div>
               </div>
               <div class="end">

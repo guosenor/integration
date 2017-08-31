@@ -21,7 +21,7 @@ module.exports = {
             const result = await User.login(params);
             const token = jwt.sign({id:result.id},secret);
             console.log('token:',token);
-            res.cookie('token',token,{signed:true});
+            res.cookie('token',token,{signed:true,httpOnly:true});
             res.send({status:'success',token:token});
         }catch (e){
             res.statusCode= 422;
