@@ -10,6 +10,9 @@ Role.create = function (form) {
         return Promise.reject('name and description is required');
     }
 }
+Role.find = function () {
+    return models.Role.findAll();
+}
 Role.deleteById = async function (id) {
     try {
         const role= await models.Role.findById(id);

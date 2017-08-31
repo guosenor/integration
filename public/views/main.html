@@ -1,3 +1,100 @@
-<div>
-    <h1>main</h1>
+<div id="main">
+    <div class="top bodybase">
+        <div class="header">
+            <span>User and Role</span>
+        </div>
+        <div class="leftBox border">
+            <div class="selectBox">
+                <input type="checkbox">全选
+                <input type="checkbox">反选
+            </div>
+            <div class="selectBox">
+                <div ng-repeat="userItem in users">
+                    <input type="checkbox" ng-model="userItem.selected" ng-true-value="true" ng-false-value="false" ng-click="userSelected(userItem)">{{userItem.username}}
+                </div>
+
+            </div>
+        </div>
+        <div class="leftBox">
+        </div>
+        <div class="leftBox border">
+            <div class="selectBox">
+                <input type="checkbox">全选
+                <input type="checkbox">反选
+            </div>
+            <div class="selectBox">
+                <div ng-repeat="role in roles">
+                    <input type="checkbox" ng-model="role.selected" ng-true-value="true" ng-false-value="false" ng-click="userSelectRole(role)">{{role.name}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="body bodybase">
+        <div class="header">
+            <span>Role and Action</span>
+        </div>
+        <div class="leftBox border">
+            <div class="selectBox">
+                <input type="checkbox">全选
+                <input type="checkbox">反选
+            </div>
+            <div class="selectBox">
+                <input type="checkbox">xxxxxxxxxxxxxxxxxx
+                <input type="checkbox">xxxxxxxxxxxxxxxxxx
+                <input type="checkbox">xxxxxxxxxxxxxxxxxx
+                <input type="checkbox">xxxxxxxxxxxxxxxxxx
+                <input type="checkbox">xxxxxxxxxxxxxxxxxx
+                <input type="checkbox">xxxxxxxxxxxxxxxxxx
+                <input type="checkbox">xxxxxxxxxxxxxxxxxx
+            </div>
+        </div>
+        <div class="leftBox">
+        </div>
+        <div class="leftBox border">
+            <div class="selectBox">
+                <input type="checkbox">全选
+                <input type="checkbox">反选
+            </div>
+            <div class="selectBox">
+                <input type="checkbox">xxxxxxxxxxxxxxxxxx
+                <input type="checkbox">xxxxxxxxxxxxxxxxxx
+                <input type="checkbox">xxxxxxxxxxxxxxxxxx
+                <input type="checkbox">xxxxxxxxxxxxxxxxxx
+            </div>
+        </div>
+    </div>
+    <div class="foot bodybase">
+        <div class="header">
+            <span>User and Action</span>
+        </div>
+        <div class="leftBox border">
+            <div class="selectBox">
+                <input type="checkbox">全选
+                <input type="checkbox">反选
+            </div>
+            <div class="selectBox">
+                <input type="checkbox">xxxxxxxxxxxxxxxxxx
+                <input type="checkbox">xxxxxxxxxxxxxxxxxx
+                <input type="checkbox">xxxxxxxxxxxxxxxxxx
+                <input type="checkbox">xxxxxxxxxxxxxxxxxx
+                <input type="checkbox">xxxxxxxxxxxxxxxxxx
+                <input type="checkbox">xxxxxxxxxxxxxxxxxx
+                <input type="checkbox">xxxxxxxxxxxxxxxxxx
+            </div>
+        </div>
+        <div class="leftBox">
+        </div>
+        <div class="leftBox border">
+            <div class="selectBox">
+                <input type="checkbox">全选
+                <input type="checkbox">反选
+            </div>
+            <div class="selectBox">
+                <input type="checkbox">xxxxxxxxxxxxxxxxxx
+                <input type="checkbox">xxxxxxxxxxxxxxxxxx
+                <input type="checkbox">xxxxxxxxxxxxxxxxxx
+                <input type="checkbox">xxxxxxxxxxxxxxxxxx
+            </div>
+        </div>
+    </div>
 </div>

@@ -9,6 +9,11 @@ User.create=function (user) {
     }
     return models.User.create(user);
 }
+User.find = function (filter) {
+    filter.attributes= ['id', 'username'];
+    filter.include='roles';
+   return models.User.findAll(filter)
+}
 User.login=function (form) {
     if(form.username&&form.password){
         return models.User.findOne({

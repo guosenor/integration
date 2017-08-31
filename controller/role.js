@@ -13,6 +13,15 @@ module.exports = {
             res.send({code:422,message:e.message})
         }
     },
+    find: async function (req,res,next) {
+        try {
+            const result = await Role.find();
+            res.send(result)
+        }catch(e){
+            res.statusCode=422;
+            res.send({code:422,message:e.message})
+        }
+    },
     modify: async function (req,res,next) {
         try {
             const params = req.body;
@@ -29,7 +38,6 @@ module.exports = {
             const result = await Role.deleteById(id);
             res.send({status:'success'});
         }catch(e){
-            console.log(e);
             res.statusCode=422;
             res.send({code:422,message:e})
         }

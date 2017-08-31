@@ -67,6 +67,22 @@ router.post('/modify',Role.modify);
 
 /**
  * @swagger
+ * /api/role:
+ *   get:
+ *     tags:
+ *       - Roles
+ *     description: get Roles
+ *     produces:
+ *       - application/json
+ *     responses:
+ *       200:
+ *         description: roles
+ */
+
+router.get('/',Role.find);
+
+/**
+ * @swagger
  * /api/role/:id:
  *   delete:
  *     tags:

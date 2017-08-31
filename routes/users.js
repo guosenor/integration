@@ -62,6 +62,26 @@ router.post('/',User.create);
 router.post('/login',User.login);
 /**
  * @swagger
+ * /api/user:
+ *   get:
+ *     tags:
+ *       - Users
+ *     description: get User list for admin
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: filter
+ *         description: filter object
+ *         in:  query
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: userList
+ */
+router.get('/',User.find);
+/**
+ * @swagger
  * /api/user/setRole:
  *   get:
  *     tags:

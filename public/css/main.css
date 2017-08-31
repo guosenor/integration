@@ -1,0 +1,28 @@
+#main .border{
+    border: solid 1px rgba(64, 226, 255, 0.9)
+}
+#main .bodybase{
+    width: 50%;
+    min-height: 100px;
+    position: relative;
+    left: 25%;
+    right: 25%;
+    margin-top: 10px;
+}
+#main .header{
+    width: 100%;
+    height: 30px;
+    margin-top: 2px;
+    margin-left: 10%;
+}
+#main .leftBox{
+    display: inline-table;
+    width: 25%;
+    min-height: 90px;
+    max-height: 400px;
+    margin-left: 6%;
+    margin-top: 0;
+}
+#main .selectBox{
+    margin: 20px 20px 20px 20px;
+}

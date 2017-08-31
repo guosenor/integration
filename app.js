@@ -68,7 +68,6 @@ app.use(async function (req,res,next) {
             const roleActions = await Role.getActionByRoleIds(roleIds);
             const userActions= await req.user.getActions();
             req.Actions=JSON.parse(JSON.stringify(roleActions)).concat(JSON.parse(JSON.stringify(userActions)));
-            console.log(req.Actions)
         }catch (e){
             console.log(e);
         }

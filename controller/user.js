@@ -43,6 +43,20 @@ module.exports = {
             res.send({code:401,message:'please login'})
         }
     },
+    find: async (req, res, next) => {
+        let filter = req.query.filter;
+        if(!filter){
+         filter = '{}';
+        }
+        try {
+            const result = await User.find(JSON.parse(filter));
+            res.send(result);
+        }catch (e){
+            res.statusCode=422;
+            res.send({code:422,message:e.message})
+        }
+
+    },
     setRole: async (req, res, next) => {
         try {
             const params= req.query;
